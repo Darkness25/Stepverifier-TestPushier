@@ -1,2 +1,16 @@
-package co.com.sofka.Stepverifier;public class UpperCaseConverter {
+package co.com.sofka.Stepverifier;
+
+import reactor.core.publisher.Flux;
+
+public class UpperCaseConverter {
+
+    private final Flux<String> source;
+    UpperCaseConverter(Flux<String> source) {
+        this.source = source;
+    }
+    Flux<String> getUpperCase() {
+        return source
+                .map(String::toUpperCase);
+    }
+
 }
